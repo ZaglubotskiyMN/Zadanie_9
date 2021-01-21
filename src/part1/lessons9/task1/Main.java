@@ -2,24 +2,50 @@ package part1.lessons9.task1;
 
 public class Main {
 
+    interface Fly{
+       static void fly(){
+           System.out.println("умеет летать");
+       };
+    }
+     interface Run{
+        static void run(){
+            System.out.println("умеет бегать");
+        };
+     }
+     interface Swim{
+       static void swim(){
+           System.out.println("умеет плавать");
+       };
+     }
+
 
     public static void main(String[] args) {
         dog sharik = new dog("Млекопитающие","male","Домашнее животное","Шпиц",1,"Шарик","Серый");
         cat murzik = new cat("Млекопитающие","male","Домашнее животное","Метис",1,"Мурзик","белый");
         duck donald = new duck("Млекопитающие","male","Домашнее животное","Пекинская",1,"Дональд","Белый");
         System.out.println("Name dog"+ " "+ sharik.getName());
+        System.out.print("Животное"+ " " );Run.run();
+        System.out.print("Животное"+ " " );Swim.swim();
+        System.out.println("-------------");
         System.out.println("name cat"+ " "+ murzik.getName());
+        System.out.print("Животное"+ " " );Run.run();
+        System.out.print("Животное"+ " " );Swim.swim();
+        System.out.println("-------------");
         System.out.println("name duck"+" "+ donald.getName());
+        System.out.print("Животное"+ " " );Run.run();
+        System.out.print("Животное"+ " " );Swim.swim();
+        System.out.print("Животное"+ " " );Fly.fly();
 
     }
 
 
-    static class animails {
+    abstract static class animails {
         private String klas;
         private String sex;
         private String dikieordomashnie;
         private String poroda;
         private int age;
+        //String name;
 
         animails(String klas, String sex, String dikieordomashnie,String poroda,int age) {
             this.setKlas(klas);
@@ -72,7 +98,7 @@ public class Main {
         }
     }
 
-    static class dog extends animails{
+    static class dog extends animails implements Run,Swim{
         private String name;
         private String color;
 
@@ -83,6 +109,10 @@ public class Main {
             this.setName(name);
             this.setColor(color);
         }
+        public void run(){
+            System.out.println("Гав");
+        }
+
 
         public String getName() {
             return name;
@@ -99,8 +129,13 @@ public class Main {
         public void setColor(String color) {
             this.color = color;
         }
+
+
+        public void swim() {
+
+        }
     }
-    static class cat extends animails {
+    static class cat extends animails implements Run,Swim {
         private String name;
         private String color;
 
@@ -123,8 +158,15 @@ public class Main {
         public void setColor(String color) {
             this.color = color;
         }
+
+
+        public void swim() {
+
+        }
+
+
     }
-    static class  duck extends animails{
+    static class  duck extends animails implements Run,Swim,Fly{
         private String name;
         private String color;
 
@@ -146,6 +188,16 @@ public class Main {
 
         public void setColor(String color) {
             this.color = color;
+        }
+
+
+        public void fly() {
+
+        }
+
+
+        public void swim() {
+
         }
     }
 
