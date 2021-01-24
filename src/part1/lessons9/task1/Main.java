@@ -24,6 +24,7 @@ public class Main {
         cat murzik = new cat("Млекопитающие","male","Домашнее животное","Метис",1,"Мурзик","белый");
         duck donald = new duck("Млекопитающие","male","Домашнее животное","Пекинская",1,"Дональд","Белый");
         man Ivan = new man("Ivan","Ivanov");
+        woman Sveta=new woman("Sveta","Ivanova");
         System.out.println("Name dog"+ " "+ sharik.getName());
         System.out.print("Животное"+ " " );Run.run();
         System.out.print("Животное"+ " " );Swim.swim();
@@ -37,9 +38,13 @@ public class Main {
         System.out.print("Животное"+ " " );Swim.swim();
         System.out.print("Животное"+ " " );Fly.fly();
         System.out.println("-------------");
-        System.out.println("Человек"+" "+ Ivan.getFirst_name()+ " "+Ivan.getLast_name());
+        System.out.println("Мужчина"+" "+ Ivan.getFirst_name()+ " "+Ivan.getLast_name());
         Ivan.Running(1);
         Ivan.Swimmming(0);
+        System.out.println("-------------");
+        System.out.println("Женщина"+ " "+ Sveta.getFirst_name()+ " "+Sveta.getLast_name());
+        Sveta.Running(2);
+        Sveta.Swimmming(2);
 
 
 
@@ -295,6 +300,56 @@ public class Main {
 
          }
      }
+    public static class woman extends human{
+
+        woman(String first_name, String last_name) {
+            super(first_name, last_name);
+        }
+
+        public void Running(int a) {
+            switch (a) {
+                case STAIT:
+                    System.out.println("Человек стоит");
+                    break;
+                case WALK:
+                    System.out.println("Человек идет");
+                    break;
+                case RUN:
+                    System.out.println("Человек бежит");
+                    break;
+                default:
+                    System.out.println("По умолчанию стоит");
+            }
+
+
+        }
+        public void Swimmming(int b){
+            switch (b) {
+                case MAN_STAND_ON_THE_GROUND:
+                    System.out.println("Человек стоит на земле");
+                    break;
+                case MAN_IN_THE_WATER:
+                    System.out.println("Человек поплыл");
+                    break;
+                default:
+                    System.out.println("По умолчанию человек стоит на земле");
+                    break;
+            }
+
+        }
+
+
+
+        @Override
+        public void stait(int a) {
+
+        }
+
+        @Override
+        public void stait_on(int b) {
+
+        }
+    }
 
 }
 
