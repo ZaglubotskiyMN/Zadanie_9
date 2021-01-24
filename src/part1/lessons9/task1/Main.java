@@ -153,6 +153,8 @@ public class Main {
 
         cat(String klas, String sex, String dikieordomashnie, String poroda, int age,String name,String color) {
             super(klas, sex, dikieordomashnie, poroda, age);
+            this.setName(name);
+            this.setColor(color);
         }
 
         public String getName() {
@@ -184,6 +186,9 @@ public class Main {
 
         duck(String klas, String sex, String dikieordomashnie, String poroda, int age,String name, String color) {
             super(klas, sex, dikieordomashnie, poroda, age);
+            this.setName(name);
+            this.setColor(color);
+
         }
 
         public String getName() {
