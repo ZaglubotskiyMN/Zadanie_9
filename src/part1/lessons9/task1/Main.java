@@ -23,6 +23,7 @@ public class Main {
         dog sharik = new dog("Млекопитающие","male","Домашнее животное","Шпиц",1,"Шарик","Серый");
         cat murzik = new cat("Млекопитающие","male","Домашнее животное","Метис",1,"Мурзик","белый");
         duck donald = new duck("Млекопитающие","male","Домашнее животное","Пекинская",1,"Дональд","Белый");
+        man Ivan = new man("Ivan","Ivanov");
         System.out.println("Name dog"+ " "+ sharik.getName());
         System.out.print("Животное"+ " " );Run.run();
         System.out.print("Животное"+ " " );Swim.swim();
@@ -35,6 +36,11 @@ public class Main {
         System.out.print("Животное"+ " " );Run.run();
         System.out.print("Животное"+ " " );Swim.swim();
         System.out.print("Животное"+ " " );Fly.fly();
+        System.out.println("-------------");
+        System.out.println("Человек"+" "+ Ivan.getFirst_name()+ " "+Ivan.getLast_name());
+        Ivan.Running(1);
+
+
 
     }
 
@@ -197,6 +203,69 @@ public class Main {
 
 
         public void swim() {
+
+        }
+    }
+    interface Running{
+        int STAIT= 0;
+        int WALK =1;
+        int RUN =2;
+        static void stait(int a){
+            switch (a){
+                case STAIT:System.out.println("Человек стоит");break;
+                case WALK:System.out.println("Человек идет");break;
+                case RUN:System.out.println("Человек бежит");break;
+                default:System.out.println("По умолчанию стоит");
+
+            }
+        };
+    }
+    interface Swimmming{
+        int MAN_STAND_ON_THE_GROUND =0;
+        int MAN_IN_THE_WATER=1;
+         static void stait_on (int b){
+             switch (b){
+                 case MAN_STAND_ON_THE_GROUND:System.out.println("Человек стоит на земле");break;
+                 case MAN_IN_THE_WATER:System.out.println("Человек поплыл");break;
+                 default:System.out.println("По умолчанию человек стоит на земле");break;
+             }
+         };
+    }
+
+    static abstract class human implements Running,Swimmming{
+        private String first_name;
+        private String last_name;
+        human(String first_name,String last_name){
+            this.setFirst_name(first_name);
+            this.setLast_name(last_name);
+        }
+
+        public String getFirst_name() {
+            return first_name;
+        }
+
+        public void setFirst_name(String first_name) {
+            this.first_name = first_name;
+        }
+
+        public String getLast_name() {
+            return last_name;
+        }
+
+        public void setLast_name(String last_name) {
+            this.last_name = last_name;
+        }
+    }
+     public static class man extends human{
+
+        man(String first_name, String last_name) {
+            super(first_name, last_name);
+        }
+
+        public void Running() {
+
+        }
+        public void Swimmming(){
 
         }
     }
