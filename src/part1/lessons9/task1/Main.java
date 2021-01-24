@@ -39,6 +39,7 @@ public class Main {
         System.out.println("-------------");
         System.out.println("Человек"+" "+ Ivan.getFirst_name()+ " "+Ivan.getLast_name());
         Ivan.Running(1);
+        Ivan.Swimmming(0);
 
 
 
@@ -210,26 +211,14 @@ public class Main {
         int STAIT= 0;
         int WALK =1;
         int RUN =2;
-        static void stait(int a){
-            switch (a){
-                case STAIT:System.out.println("Человек стоит");break;
-                case WALK:System.out.println("Человек идет");break;
-                case RUN:System.out.println("Человек бежит");break;
-                default:System.out.println("По умолчанию стоит");
+        void stait(int a);
 
-            }
-        };
     }
     interface Swimmming{
         int MAN_STAND_ON_THE_GROUND =0;
         int MAN_IN_THE_WATER=1;
-         static void stait_on (int b){
-             switch (b){
-                 case MAN_STAND_ON_THE_GROUND:System.out.println("Человек стоит на земле");break;
-                 case MAN_IN_THE_WATER:System.out.println("Человек поплыл");break;
-                 default:System.out.println("По умолчанию человек стоит на земле");break;
-             }
-         };
+         void stait_on (int b);
+
     }
 
     static abstract class human implements Running,Swimmming{
@@ -262,13 +251,50 @@ public class Main {
             super(first_name, last_name);
         }
 
-        public void Running() {
+        public void Running(int a) {
+            switch (a) {
+                case STAIT:
+                    System.out.println("Человек стоит");
+                    break;
+                case WALK:
+                    System.out.println("Человек идет");
+                    break;
+                case RUN:
+                    System.out.println("Человек бежит");
+                    break;
+                default:
+                    System.out.println("По умолчанию стоит");
+            }
+
 
         }
-        public void Swimmming(){
+        public void Swimmming(int b){
+                switch (b) {
+                    case MAN_STAND_ON_THE_GROUND:
+                        System.out.println("Человек стоит на земле");
+                        break;
+                    case MAN_IN_THE_WATER:
+                        System.out.println("Человек поплыл");
+                        break;
+                    default:
+                        System.out.println("По умолчанию человек стоит на земле");
+                        break;
+                }
 
-        }
-    }
+            }
+
+
+
+         @Override
+         public void stait(int a) {
+
+         }
+
+         @Override
+         public void stait_on(int b) {
+
+         }
+     }
 
 }
 
